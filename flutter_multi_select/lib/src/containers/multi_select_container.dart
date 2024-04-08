@@ -383,8 +383,10 @@ class _SimpleMultiSelectContainerState<T>
                     style: getTextStyle(item.textStyles, widget.textStyles,
                         isSelected, item.enabled, context),
                     child: item.child ??
-                        Text(
-                          item.label!,
+                        Semantics(
+                          toggled: isSelected,
+                          enabled: item.enabled,
+                          child: Text(item.label!,)
                         ),
                   ),
                   _suffix == null
